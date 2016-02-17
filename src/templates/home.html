@@ -12,7 +12,7 @@
             placeholder="輸入你要查詢的關鍵字..." />
         <div class="list-group">
             <a ng-repeat="item in records | filter: form.keyword | limitTo: 50" class="list-group-item">
-                {{ item.category }} {{ item.label }} <span class="pull-right">{{ item.artist }}</span>
+                <label>{{ item.sid }}</label> ({{ item.category }}) {{ item.label }} <span class="pull-right">{{ item.artist }}</span>
             </a>
         </div>
     </div>
