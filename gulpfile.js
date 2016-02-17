@@ -8,7 +8,7 @@
 // Please use config.js to override these selectively:
 
 var config = {
-  dest: 'www',
+  dest: 'dist',
   cordova: true,
   less: {
     src: [

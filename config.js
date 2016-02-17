@@ -8,7 +8,7 @@ module.exports = function(config) {
    * @property config.dest
    * @type {String}
    */
-  config.dest = 'www';
+  config.dest = 'dist';
 
   /**
    * Whether to inject cordova script
