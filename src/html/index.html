@@ -13,7 +13,7 @@
     <!-- inject:js -->
     <script src="js/app.min.js"></script>
   </head>
-  <body ng-app="SongSearcher" ng-controller="MainController">
+  <body ng-app="SongSearcher" ng-controller="MainController" ui-prevent-touchmove-defaults>
 
     <!-- Sidebars -->
     <div ng-include="'sidebar.html'" 
@@ -58,6 +58,9 @@
 
       <!-- App Body -->
       <div class="app-body">
+        <div ng-show="loading" class="app-content-loading">
+          <i class="fa fa-spinner fa-spin loading-spinner"></i>
+        </div>
         <div class="app-content">
           <ng-view></ng-view>  
         </div>

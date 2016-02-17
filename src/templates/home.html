@@ -1,22 +1,26 @@
-<section class="section container-fluid scrollable" ui-state="searchBar">
-    <h3 class="page-header">Welcome to SongSearcher</h3>
-    <div class="input-group">
-        <input
-            type="text"
-            class="form-control"
-            ng-model="form.keyword"
-            placeholder="輸入你要查詢的關鍵字..." />
-        <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">尋找!</button>
-        </span>
-    </div>
+<div ui-content-for="title">
+  <span>SongSearch!</span>
+</div>
 
-    <!-- Data Grid -->
-    <div class="scrollable-content" ui-scroll-bottom='bottomReached()' style="margin-top: 20px;">
+<div class="scrollable" ui-state="searchBar">
+    <div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
+        <input
+            ng-if="Ui.active('searchBar')"
+            type="search"
+            ng-model="form.keyword"
+            class="form-control scrollable-header"
+            placeholder="輸入你要查詢的關鍵字..." />
         <div class="list-group">
-            <a ng-repeat="item in records | limitTo: 50" class="list-group-item">
-                {{ item.label }}
+            <a ng-repeat="item in records | filter: form.keyword | limitTo: 50" class="list-group-item">
+                {{ item.category }} {{ item.label }} <span class="pull-right">{{ item.artist }}</span>
             </a>
         </div>
     </div>
-</section>
+
+    <a class="btn btn-block btn-lg btn-primary scrollable-footer" ui-toggle='searchBar'>
+        <i class="fa fa-search"></i> 
+        <span ui-hide="searchBar">Show</span>
+        <span ui-show="searchBar">Hide</span>
+        Search Bar
+    </a>
+</div>
