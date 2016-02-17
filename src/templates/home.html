@@ -1,3 +1,22 @@
-<section class="section container-fluid">
-  <h1 class="page-header">Welcome to songSearcher</h1>  
+<section class="section container-fluid scrollable" ui-state="searchBar">
+    <h3 class="page-header">Welcome to SongSearcher</h3>
+    <div class="input-group">
+        <input
+            type="text"
+            class="form-control"
+            ng-model="form.keyword"
+            placeholder="輸入你要查詢的關鍵字..." />
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">尋找!</button>
+        </span>
+    </div>
+
+    <!-- Data Grid -->
+    <div class="scrollable-content" ui-scroll-bottom='bottomReached()' style="margin-top: 20px;">
+        <div class="list-group">
+            <a ng-repeat="item in records | limitTo: 50" class="list-group-item">
+                {{ item.label }}
+            </a>
+        </div>
+    </div>
 </section>
