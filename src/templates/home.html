@@ -3,24 +3,16 @@
 </div>
 
 <div class="scrollable" ui-state="searchBar">
+    <input
+        type="search"
+        ng-model="form.keyword"
+        class="form-control scrollable-header"
+        placeholder="輸入你要查詢的關鍵字..." />
     <div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
-        <input
-            ng-if="Ui.active('searchBar')"
-            type="search"
-            ng-model="form.keyword"
-            class="form-control scrollable-header"
-            placeholder="輸入你要查詢的關鍵字..." />
         <div class="list-group">
             <a ng-repeat="item in records | filter: form.keyword | limitTo: 50" class="list-group-item">
                 <label>{{ item.sid }}</label> ({{ item.category }}) {{ item.label }} <span class="pull-right">{{ item.artist }}</span>
             </a>
         </div>
     </div>
-
-    <a class="btn btn-block btn-lg btn-primary scrollable-footer" ui-toggle='searchBar'>
-        <i class="fa fa-search"></i> 
-        <span ui-hide="searchBar">Show</span>
-        <span ui-show="searchBar">Hide</span>
-        Search Bar
-    </a>
 </div>
